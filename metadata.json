@@ -1,0 +1,6 @@
+{
+  "name": "苏哥哥AI教练 - TikTok 定位诊断与变现系统",
+  "description": "专为马新华人商家、实体店老板、副业人群打造的 AI 短视频 + TikTok 变现定位系统，3分钟测出赚钱方向，一键生成30天行动指南与爆款选题脚本。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
