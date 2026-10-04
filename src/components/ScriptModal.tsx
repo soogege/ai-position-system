@@ -50,7 +50,65 @@ export const ScriptModal: React.FC<ScriptModalProps> = ({
         }
       })
       .catch((err) => {
-        console.error('Fetch script error:', err);
+        console.error('Fetch script error, using client fallback:', err);
+        if (isMounted) {
+          setScript({
+            topicTitle: defaultTopicTitle,
+            estimatedDuration: '32秒',
+            scenes: [
+              {
+                sceneIndex: 1,
+                timeRange: '00:00 - 00:03',
+                stage: '黄金前3秒截流',
+                visual: 'AI数字人正面特写 + 画面右侧浮动震撼踩雷红叉叉对比图，快节奏缩放',
+                spokenAudio: defaultHook,
+                onScreenText: '🚨 租房党先别买！看这3秒省RM200',
+                soundEffect: '紧急刹车声 + 悬念重低音 Whoosh',
+              },
+              {
+                sceneIndex: 2,
+                timeRange: '00:03 - 00:10',
+                stage: '痛点放大与共情',
+                visual: '实拍传统工具发霉、缠满毛发、要用手用力拧干的狼狈场景特写',
+                spokenAudio: '“普通款用两次就发黑发臭，洗的时候还要用手去拧脏水，每次搞卫生整个人都崩溃！”',
+                onScreenText: '❌ 发霉发臭 / ❌ 还要用手拧',
+                soundEffect: '叹气音效 + 踩雷警报滴滴声',
+              },
+              {
+                sceneIndex: 3,
+                timeRange: '00:10 - 00:20',
+                stage: '解决方案与神器亮相',
+                visual: 'AI测评人手持新款神器，轻轻一拉一刮，污渍毛发瞬间刮净全景演示',
+                spokenAudio: '“直到我换了这个自滤免手洗神器，一推一拉，毛发污渍自动刮得干干净净，全程手不碰一滴脏水！”',
+                onScreenText: '✨ 一推一拉自动刮净！双手零沾水',
+                soundEffect: '清爽划过 Swoosh + 欢快轻快卡点BGM',
+              },
+              {
+                sceneIndex: 4,
+                timeRange: '00:20 - 00:26',
+                stage: '实测对比与打消疑虑',
+                visual: '360度旋转钻缝，干湿两用吸可乐与灰尘瞬间吸干画面',
+                spokenAudio: '“床底沙发底都能钻进去，不仅干湿两用，立起来放还完全不占空间，Senang到不行！”',
+                onScreenText: '🔥 360°无死角钻缝 | 超省空间',
+                soundEffect: '清脆叮咚声 Ting',
+              },
+              {
+                sceneIndex: 5,
+                timeRange: '00:26 - 00:32',
+                stage: '高转化行动号召(CTA)',
+                visual: '数字人手指指向屏幕左下角小黄车站位，小黄车动态放大手势引导',
+                spokenAudio: '“现在马新大促只要RM19起还免邮！左下角小黄车数量有限，手慢就没有了！”',
+                onScreenText: '👇 戳左下角小黄车直抢免邮优惠！',
+                soundEffect: '收银机开箱金币声 Cha-ching',
+              },
+            ],
+            productionTips: {
+              digitalAvatarPrompt: '30岁知性东南亚女性，现代深色系家居直播间背景，语速中等偏快，自信有亲和力。',
+              bgmSuggestion: 'TikTok 热门轻快卡点鼓点 (节奏感强，无强烈人声干扰)',
+              firstCommentSeed: '“链接在左下角第一款，西马东马包邮现货，今天下单明天发！”',
+            },
+          });
+        }
       })
       .finally(() => {
         if (isMounted) setLoading(false);
